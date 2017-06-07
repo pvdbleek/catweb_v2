@@ -42,4 +42,4 @@ Adjust ``docker-compose.yml`` with your URL and images and deploy using:
 ```docker stack deploy -c docker-compose.yml catweb```
 
 ### End result:
-! /catweb_stack_diagram.png
+! [diagram] (https://github.com/pvdbleek/catweb_v2/blob/master/catweb_stack_diagram.png)
