@@ -1,0 +1,27 @@
+version: "3.1"
+services:
+
+  frontend:
+    image: pvdbleek/catweb-frontend
+    ports:
+      - 5000
+    networks:
+      - ucp-hrm
+      - backend
+    deploy:
+      replicas: 6
+      labels:
+        - com.docker.ucp.mesh.http=external_route=http://catweb.pvdbleek.dtcntr.net,internal_port=5000
+
+  imageserver:
+    image: pvdbleek/catweb-imageserver
+    networks:
+      - backend
+    deploy:
+      replicas: 3
+
+networks:
+    backend:
+    ucp-hrm:
+      external:
+         name: ucp-hrm
